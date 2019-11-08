@@ -1,0 +1,44 @@
+---
+title: "Stock Prices"
+author: "Trevor"
+date: "8 November 2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Stock Market 
+
+- The stock market is driven by simply supply and demand
+- The more demand for a stock, the higher the price
+
+
+## Application Overview
+
+- This application plots a certain stock given the predefined observation period
+- Prices are obtained by yahoo finance
+- The app also allows for the stock prices to be plotted on the log scale
+
+## Instructions
+
+- Put in the ticker symbol. These can be looked up at:
+https://finance.yahoo.com/lookup/
+
+- Use the slider to pick the observation period
+- Tick the bos if you want to view the y-axis on the log scale
+
+## Data of BHP stock
+
+```{r BHP, echo = TRUE, warning=FALSE, message=FALSE}
+library(quantmod)
+
+getSymbols("BHP", src = "yahoo", 
+           from = as.Date("2006-01-01"),
+           to = as.Date("2019-10-31"))
+
+head(BHP)
+```
+
+
